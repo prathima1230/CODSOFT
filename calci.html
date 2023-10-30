@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calic.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form name="cal">
+            <input type="text" name="display" id="display" placeholder="0" readonly>
+            
+            <br>
+            <div class="button-box">
+                <input type="button" class="btn" value="7" onclick="addToDisplay('7')">
+                <input type="button" class="btn" value="8" onclick="addToDisplay('8')">
+                <input type="button" class="btn" value="9" onclick="addToDisplay('9')">
+                <input type="button" class="btn mbtn" value="+" onclick="addToDisplay('+')">
+                <br>
+                <input type="button" class="btn" value="4" onclick="addToDisplay('4')">
+                <input type="button" class="btn" value="5" onclick="addToDisplay('5')">
+                <input type="button" class="btn" value="6" onclick="addToDisplay('6')">
+                <input type="button" class="btn mbtn" value="-" onclick="addToDisplay('-')">
+                <br>
+                <input type="button" class="btn" value="1" onclick="addToDisplay('1')">
+                <input type="button" class="btn" value="2" onclick="addToDisplay('2')">
+                <input type="button" class="btn" value="3" onclick="addToDisplay('3')">
+                <input type="button" class="btn mbtn" value="*" onclick="addToDisplay('*')">
+                <br>
+                <input type="button" class="btn mbtn"  value="=" onclick="calculate()">
+                <input type="button" class="btn" value="0" onclick="addToDisplay('0')">
+                <input type="button" class="btn" value="." onclick="addToDisplay('.')">
+                <input type="button" class="btn mbtn" value="/" onclick="addToDisplay('/')">
+                <br>
+                <input type="button" class="btn cbtn" value="C" onclick="clearDisplay()">
+            
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            document.cal.display.value += value;
+        }
+
+        function clearDisplay() {
+            document.cal.display.value = '';
+        }
+
+        function calculate() {
+            try {
+                document.cal.display.value = eval(document.cal.display.value);
+            } catch (error) {
+                document.cal.display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
